@@ -1,5 +1,5 @@
 # CRPN
-unofficial implement of CRPN
+Unofficial implementation of CRPN
 ## Main Results
 | Models  | VOT16 |
 | :------ | :------: | 
