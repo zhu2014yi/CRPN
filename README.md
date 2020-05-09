@@ -17,3 +17,5 @@ Please follow the [SiamDW](https://github.com/researchmm/SiamDW)
 ## Note
 1. Please set the LR_END in SiamRPN.yaml(experiments/train/SiamRPN.yaml) to 0.000001  and Model:"SiamRPNRes22" to Model:"CascadedSiamRPNRes22" when train the CRPN .
 2. When train the SiamDW+depthwise, you can use the default parameters.
+## Update
+2020/5/9. add the CRPN.yaml config file, you can use the CRPN without change the parameters in SiamRPN.yaml.
