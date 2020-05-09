@@ -8,3 +8,9 @@ Unofficial implementation of CRPN
 
 ## Anaconda Environment
 Please follow the [SiamDW](https://github.com/researchmm/SiamDW)
+## Train
+1. conda activate SiamDW(environment)
+2.cd CRPN
+3. export PYTHONPATH=/home/xxx/CRPN/:PYTHONPATH
+4. cd siamese_tracking
+5. python onekey.py 
