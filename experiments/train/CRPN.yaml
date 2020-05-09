@@ -1,0 +1,94 @@
+SIAMRPN:
+  GPUS: '0,1'
+  PRINT_FREQ: 10
+  WORKERS: 6
+  OUTPUT_DIR: 'logs'   # log file
+    # Todo do not foget to change the resume dir in test_epoch.py if change the checkpoint_dir listed below
+  CHECKPOINT_DIR: '/data/zhuyi/Code/snapshot_orig'   # checkpoint file
+
+  TRAIN:
+    ISTRUE: True   # whether to train
+    MODEL: "CascadedSiamRPNRes22"
+    START_EPOCH: 0
+    END_EPOCH: 50
+    TEMPLATE_SIZE: 127
+    SEARCH_SIZE: 255
+    STRIDE: 8
+    BATCH: 16    #change
+    RESUME: ''
+    PRETRAIN: 'pretrain.model'  #'checkpoint_e45.pth'
+    LR_POLICY: 'log'
+    LR: 0.01
+    LR_END: 0.000001
+    MOMENTUM: 0.9
+    WEIGHT_DECAY: 0.0005
+    CLS_WEIGHT: 1
+    #Todo do not forget to change the Reg_Weight when the GIoU is set to true
+    REG_WEIGHT: 0.1
+    CLS_TYPE: 'thicker'  # thicker or thinner
+    GIoU_LOSS: False
+    #WHICH_USE: ['YTB', 'VID', 'COCO', 'DET']    # add any data you want eg: ['GOT10K', 'LASOT']
+    #WHICH_USE: ['YTB', 'GOT10K', 'COCO', 'DET']
+
+    WHICH_USE: ['GOT10K']
+    ANCHORS_RATIOS: [0.33, 0.5, 1, 2, 3]
+    ANCHORS_SCALES: [8]
+    ANCHORS_THR_HIGH: 0.6
+    ANCHORS_THR_LOW: 0.3
+    ANCHORS_POS_KEEP: 16
+    ANCHORS_ALL_KEEP: 64
+  TEST:    # TEST model is same as TRAIN.MODEL
+    ISTRUE: True  # whether to test
+    THREADS: 2   # multi threads test
+    DATA: 'VOT2016'
+    START_EPOCH: 20 #20
+    END_EPOCH: 50
+  TUNE:    # TUNE model is same as TRAIN.MODEL
+    ISTRUE: False  # whether to tune
+    DATA: 'VOT2016'
+    METHOD: 'TPE'
+  DATASET:
+    NEG: 0.2
+    TEMPLATE_SHIFT: 4
+    SEARCH_SHIFT: 12
+    TEMPLATE_SCALE: 0.05
+    SEARCH_SCALE: 0.18
+    COLOR: 1
+    FLIP: 0
+    BLUR: 0.2
+    ROTATION: 0
+    # add data path in WITCH_USE
+    # you can ablate here to find witch data and ratio is better for your task
+    VID:
+      PATH: '/data/vid/crop271'
+      ANNOTATION: '/data/vid/train.json'
+      RANGE: 100
+      USE: 200000
+    YTB:
+      PATH: '/ssd/y2b/crop271'
+      ANNOTATION: '/ssd/y2b/train.json'
+      RANGE: 3
+      USE: 200000
+    DET:
+      PATH: '/ssd/det/crop271'
+      ANNOTATION: '/ssd/det/train.json'
+      RANGE: 100
+      USE: 100000
+    COCO:
+      PATH: "/ssd/coco/crop271"
+      ANNOTATION: "/ssd/coco/train2017.json"
+      RANGE: 1
+      USE: 100000
+    GOT10K:
+      PATH: '/ssd/GOT-10K271/crop271'
+      ANNOTATION: '/ssd/GOT-10K271/train.json'
+      RANGE: 100
+      USE: 200000 #200000
+    LASOT:
+      PATH: "/ssd/lasot/crop271"
+      ANNOTATION: "/ssd/lasot/train2017.json"
+      RANGE: 100
+      USE: 200000
+
+
+
