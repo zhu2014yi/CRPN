@@ -15,5 +15,5 @@ Please follow the [SiamDW](https://github.com/researchmm/SiamDW)
 4. cd siamese_tracking
 5. python onekey.py 
 ## Note
-1. Please set the LR_END in SiamRPN.yaml(experiments/train/SiamRPN.yaml) to 0.000001  and Model:'SiamRPNRes22 to 'Model:"CascadedSiamRPNRes22" when train the CRPN .
+1. Please set the LR_END in SiamRPN.yaml(experiments/train/SiamRPN.yaml) to 0.000001  and Model:"SiamRPNRes22" to Model:"CascadedSiamRPNRes22" when train the CRPN .
 2. When train the SiamDW+depthwise, you can use the default parameters.
