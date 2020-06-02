@@ -9,6 +9,7 @@ Unofficial implementation of CRPN
 ## Anaconda Environment
 Please follow the [SiamDW](https://github.com/researchmm/SiamDW)
 
+### Install pysot toolkit 
 cd CRPN;python setup.py build_ext --inplace
 ## Train&Test
 1. conda activate SiamDW(environment)
