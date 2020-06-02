@@ -21,4 +21,5 @@ cd CRPN;python setup.py build_ext --inplace
 2. When train the SiamDW+depthwise, you can use the default parameters.
 ## Update
 2020/5/9. add the CRPN.yaml config file, you can use the CRPN without change the parameters in SiamRPN.yaml.
+
 2020/6/2. add the pysot toolkit to eval the tracker,usage: 1.cd siamese_tracking;2. python test_siamrpn_main.py
