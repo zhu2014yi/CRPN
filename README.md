@@ -16,7 +16,7 @@ cd CRPN;python setup.py build_ext --inplace
 3. export PYTHONPATH=/home/xxx/CRPN/:PYTHONPATH
 4. cd siamese_tracking
 5. python onekey.py 
-## eval
+## Eval
 python eval.py
 ## Note
 1. Please set the LR_END in SiamRPN.yaml(experiments/train/SiamRPN.yaml) to 0.000001  and Model:"SiamRPNRes22" to Model:"CascadedSiamRPNRes22" when train the CRPN .
