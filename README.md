@@ -20,9 +20,9 @@ cd CRPN;python setup.py build_ext --inplace
 ## Eval
 python eval.py
 ## Note
-1. Please set the LR_END in SiamRPN.yaml(experiments/train/SiamRPN.yaml) to 0.000001  and Model:"SiamRPNRes22" to Model:"CascadedSiamRPNRes22" when train the CRPN .
-2. When train the SiamDW+depthwise, you can use the default parameters.
-3. eao will lower than origin version(0.393->0.390) due to the number of digits after the decimal point,and the results of OTB2015 may higher than use the original one. 
+1. When train the SiamDW+depthwise, you can use the default parameters.
+2. Eao will lower than origin version(0.393->0.390) due to the number of digits after the decimal point,and the results of OTB2015 may higher than use the original one. 
+3. pysot toolkit support VOT2016,2018,2019 and OTB100(2015)
 ## Update
 2020/5/9. add the CRPN.yaml config file, you can use the CRPN without change the parameters in SiamRPN.yaml.
 
