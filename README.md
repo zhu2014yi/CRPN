@@ -22,8 +22,9 @@ python eval.py
 ## Note
 1. When train the SiamDW+depthwise, you can use the default parameters.
 2. Eao will lower than origin version(0.393->0.390) due to the number of digits after the decimal point,and the results of OTB2015 may higher than use the original one. 
-3. pysot toolkit support VOT2016,2018,2019 and OTB100(2015)
+3. pysot toolkit support VOT2016,2018,2019 and OTB100(2015).
+4. pysot toolkit only support python>=3.7.
 ## Update
 2020/5/9. add the CRPN.yaml config file, you can use the CRPN without change the parameters in SiamRPN.yaml.
 
-2020/6/2. add the pysot toolkit to eval the tracker,usage: 1.cd siamese_tracking;2. python test_siamrpn_main.py
+2020/6/2. add the pysot toolkit to eval the tracker,usage: 1.cd siamese_tracking;2. python test_siamrpn_main.py.
