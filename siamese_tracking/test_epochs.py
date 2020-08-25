@@ -15,13 +15,14 @@ from mpi4py import MPI
 parser = argparse.ArgumentParser(description='multi-gpu test all epochs')
 parser.add_argument('--arch', dest='arch', default='SiamFCIncep22',
                     help='architecture of model')
-parser.add_argument('--start_epoch', default=30, type=int, required=True, help='test end epoch')
+parser.add_argument('--start_epoch', default=20, type=int, required=True, help='test end epoch')
 parser.add_argument('--end_epoch', default=50, type=int, required=True,
                     help='test end epoch')
 parser.add_argument('--gpu_nums', default=4, type=int, required=True, help='test start epoch')
 parser.add_argument('--anchor_nums', default=5, type=int, help='anchor numbers')
 parser.add_argument('--threads', default=16, type=int, required=True)
 parser.add_argument('--dataset', default='OTB2013', type=str, help='benchmark to test')
+parser.add_argument('--resume', default='/2TB/zhuyi/Code/CRPN/snapshot_orig', type=str, help="ckpt")
 args = parser.parse_args()
 
 # init gpu and epochs
@@ -45,11 +46,11 @@ for i in range(15):
 
     if epoch_ID > args.end_epoch:
         continue
-
-    resume = '/data/zhuyi/Code/snapshot_orig/checkpoint_e{}.pth'.format(epoch_ID)
+#/2TB/zhuyi/Code/CRPN/snapshot_orig
+    resume = args.resume+'/checkpoint_e{}.pth'.format(epoch_ID)
     print('==> test {}th epoch'.format(epoch_ID))
 
     if 'SiamFC' in arch:
-        os.system('python ../siamese_tracking/test_siamfc.py --arch {0} --resume {1} --dataset {2} --epoch_test True'.format(arch, resume, dataset))
+        os.system('python ../siamese_tracking/test_siamfc_main.py --arch {0} --resume {1} --dataset {2} --epoch_test True'.format(arch, resume, dataset))
     if 'SiamRPN' in arch:
-        os.system('python ../siamese_tracking/test_siamrpn.py --arch {0} --resume {1} --dataset {2}  '.format(arch, resume, dataset))
+        os.system('python ../siamese_tracking/test_siamrpn_main.py --arch {0} --resume {1} --dataset {2}  '.format(arch, resume, dataset))

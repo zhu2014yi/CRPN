@@ -30,17 +30,17 @@ from toolkit.utils.region import vot_overlap, vot_float2str
 
 """support VOT2016,2018,2019,OTB100"""
 parser = argparse.ArgumentParser(description='siamrpn tracking')
-parser.add_argument('--arch', dest='arch', default='SiamRPNRes22', help='backbone architecture')
-parser.add_argument('--anchor_nums', default=5, type=int, help='anchor numbers')
-parser.add_argument('--dataset', type=str,default="OTB100",
-        help='datasets')
-
-parser.add_argument('--snapshot',
-                    default='/home/zhuyi/Code/SiamDW_RPN_cp_2/checkpoint_e32.pth',
+parser.add_argument('--arch', dest='arch', default='CascadedSiamRPNRes22', help='backbone architecture')
+parser.add_argument('--resume',
+                    default='/2TB/zhuyi/Code/CRPN/snapshot_orig/checkpoint_e32.pth',
                     type=str,help='snapshot of models to eval')
+parser.add_argument('--dataset', type=str,default="VOT2016",
+        help='datasets')
+parser.add_argument('--anchor_nums', default=5, type=int, help='anchor numbers')
 parser.add_argument('--cls_type', default="thicker", type=str,
                     help='cls/loss type, thicker or thinner or else you defined')
 parser.add_argument('--epoch_test', default=False, type=bool, help='multi-gpu epoch test flag')
+
 parser.add_argument('--video', default='', type=str,
         help='eval one special video')
 parser.add_argument('--vis', action='store_true',
@@ -52,7 +52,7 @@ torch.set_num_threads(1)
 
 def main():
     net = models.__dict__[args.arch](anchors_nums=args.anchor_nums, cls_type=args.cls_type)
-    net = load_pretrain(net, args.snapshot)
+    net = load_pretrain(net, args.resume)
     net.eval()
     net = net.cuda()
 
@@ -68,7 +68,7 @@ def main():
     dataset = DatasetFactory.create_dataset(name=args.dataset,
                                             dataset_root=dataset_root,
                                             load_img=False)
-    model_name = args.snapshot.split('/')[-1].split('.')[0]
+    model_name = args.resume.split('/')[-1].split('.')[0]
     total_lost = 0
     """
     eao will lower than origin version(0.393->0.390) due to the  
@@ -99,7 +99,7 @@ def main():
                     target_pos = np.array([cx, cy])
                     target_sz = np.array([w, h])
                     state = tracker.init(img, target_pos, target_sz, net)  # init tracker
-
+                    state["arch"]=args.arch
                     #tracker.init(img, gt_bbox_)
                     #pred_bbox = gt_bbox_
                     pred_bboxes.append(1)
@@ -175,6 +175,7 @@ def main():
                     target_pos = np.array([cx, cy])
                     target_sz = np.array([w, h])
                     state = tracker.init(img, target_pos, target_sz, net)  # init tracker
+                    state["arch"]=args.arch
                     #tracker.init(img, gt_bbox_)
 
                     pred_bbox = gt_bbox_

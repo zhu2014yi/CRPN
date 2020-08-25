@@ -295,8 +295,12 @@ class SiamRPN(object):
 
         # extract scaled crops for search region x at previous target position
         x_crop = Variable(get_subwindow_tracking(im, target_pos, p.instance_size, python2round(s_x), avg_chans).unsqueeze(0))
-
-        target_pos, target_sz, score = self.update(net, x_crop.cuda(), target_pos, target_sz * scale_z, window, scale_z, p)
+        if state["arch"]=="SiamRPNRes22":
+            target_pos, target_sz, score = self.update(net, x_crop.cuda(), target_pos, target_sz * scale_z, window, scale_z, p)
+        elif state["arch"]=="CascadedSiamRPNRes22":
+            target_pos, target_sz, score = self.update_stage12_mean(net, x_crop.cuda(), target_pos, target_sz * scale_z, window,scale_z, p)
+        else:
+            raise  NotImplementedError
         target_pos[0] = max(0, min(state['im_w'], target_pos[0]))
         target_pos[1] = max(0, min(state['im_h'], target_pos[1]))
         target_sz[0] = max(10, min(state['im_w'], target_sz[0]))

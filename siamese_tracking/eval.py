@@ -16,12 +16,12 @@ from toolkit.evaluation import OPEBenchmark, AccuracyRobustnessBenchmark, \
 
 parser = argparse.ArgumentParser(description='tracking evaluation')
 parser.add_argument('--tracker_path', '-p', type=str,
-                    default="result",
+                    default="results",
                     help='tracker result path')
 parser.add_argument('--dataset', '-d', type=str,
                     default='VOT2016',
                     help='dataset name')
-parser.add_argument('--num', '-n', default=1, type=int,
+parser.add_argument('--num', '-n', default=6, type=int,
                     help='number of thread to eval')
 parser.add_argument('--tracker_prefix', '-t', default='*',
                     type=str, help='tracker name')

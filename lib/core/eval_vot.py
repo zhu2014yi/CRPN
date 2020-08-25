@@ -8,14 +8,14 @@ import sys
 import glob
 import matlab.engine
 eng = matlab.engine.start_matlab()  # for test eao in vot-toolkit
-eng.cd('/home/zhuyi/Code/SiamDW_RPN_cp_1/lib/core')
+eng.cd('/home/zhuyi/Code/CRPN/lib/core')
 
 import os
 from os import listdir
 from os.path import join
 
 
-absPath = '/home/zhuyi/Code/SiamDW_RPN_cp_1'
+absPath = '/home/zhuyi/Code/CRPN'
 eval_path = os.path.join(absPath, 'lib/core/')
 
 def eval_vot(dataset, result_path):
@@ -61,5 +61,5 @@ if __name__ == '__main__':
     #     print('python ./lib/core/eval_vot.py VOT2017 ./result')
     #     exit()
     dataset = 'VOT2016'
-    result_path = '/home/zhuyi/Code/SiamDW_RPN_cp_1/siamese_tracking/result'
+    result_path = '/home/zhuyi/Code/CRPN/siamese_tracking/result'
     eval_vot(dataset, result_path)

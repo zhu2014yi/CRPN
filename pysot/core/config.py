@@ -254,13 +254,13 @@ __C.TRACK = CN()
 __C.TRACK.TYPE = 'SiamRPNTracker'
 
 # Scale penalty
-__C.TRACK.PENALTY_K = 0.04
+__C.TRACK.PENALTY_K = 0.7110
 
 # Window influence
-__C.TRACK.WINDOW_INFLUENCE = 0.44
+__C.TRACK.WINDOW_INFLUENCE = 0.3550
 
 # Interpolation learning rate
-__C.TRACK.LR = 0.4
+__C.TRACK.LR = 0.7010
 
 # Exemplar size
 __C.TRACK.EXEMPLAR_SIZE = 127

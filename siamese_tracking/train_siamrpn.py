@@ -34,12 +34,13 @@ def seed_torch(seed=0):
     torch.cuda.manual_seed(seed)
     #torch.backends.cudnn.benchmark = False
     torch.backends.cudnn.deterministic = True
-# import random
-    # seed=random.randint(1,10000)
-    # with open ("/home/zhuyi/seed_search.txt","w") as f:
-    #     f.write(str(seed))
-    # print("seed:{}".format(seed))
-seed=1867 # EAO best Single RPN 0.387
+
+import random
+# seed=random.randint(1,10000)
+# with open ("/home/zhuyi/seed_search.txt","w") as f:
+seed=135
+#     f.write(str(seed))
+print("seed:{}".format(seed))
 seed_torch(seed)
 
 import models.models as models
@@ -56,7 +57,7 @@ def parse_args():
     """
     parser = argparse.ArgumentParser(description='Train SiamRPN')
     # general
-    parser.add_argument('--cfg', type=str, default='../experiments/train/SiamRPN.yaml', help='yaml configure file name')
+    parser.add_argument('--cfg', type=str, default='../experiments/train/CRPN.yaml', help='yaml configure file name')
 
     args, rest = parser.parse_known_args()
     # update config
@@ -246,6 +247,6 @@ if __name__ == '__main__':
     # with open ("/home/zhuyi/seed_search.txt","w") as f:
     #     f.write(str(seed))
     # print("seed:{}".format(seed))
-    seed=1867 # EAO best Single RPN 0.387
-    seed_torch(seed)
+    # seed=1867 # EAO best Single RPN 0.387
+    # seed_torch(seed)
     main()

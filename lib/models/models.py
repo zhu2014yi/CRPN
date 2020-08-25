@@ -83,21 +83,21 @@ class SiamRPNRes22(SiamRPN_):
         xf,_ = self.feature_extractor(search)
         pred_cls, pred_reg = self.connector(zf, xf)
         #label_cls, label_cls_next = label_cls_total
-        anchor_next = torch.tensor(self.anchors[1]).expand(batch, 4, 5, 17, 17).permute(0, 2, 3, 4,1).contiguous().view(-1,4)  # cx,cy,w,h
-        anchor_next = torch.tensor(anchor_next, dtype=torch.float64).cuda()
-        pred_reg_next = pred_reg.contiguous().view(batch, 4, 5, 17, 17).permute(0, 2, 3, 4, 1).contiguous().view(-1,4).double()
-        bboxes_next = bboxes_expand(batch, bboxes)
-        anchor_next = delta2boxes(anchor_next, pred_reg_next)
-        anchor_corner=center2corner(anchor_next)
+        # anchor_next = torch.tensor(self.anchors[1]).expand(batch, 4, 5, 17, 17).permute(0, 2, 3, 4,1).contiguous().view(-1,4)  # cx,cy,w,h
+        # anchor_next = torch.tensor(anchor_next, dtype=torch.float64).cuda()
+        # pred_reg_next = pred_reg.contiguous().view(batch, 4, 5, 17, 17).permute(0, 2, 3, 4, 1).contiguous().view(-1,4).double()
+        # bboxes_next = bboxes_expand(batch, bboxes)
+        # anchor_next = delta2boxes(anchor_next, pred_reg_next)
+        # anchor_corner=center2corner(anchor_next)
         label_cls_next = label_cls_total
-        label_iou=label_cls_total.contiguous().view(-1)
-        bboxes_next=bboxes_next[label_iou==1]
-        anchor_corner=anchor_corner[label_iou==1]
+        # label_iou=label_cls_total.contiguous().view(-1)
+        # bboxes_next=bboxes_next[label_iou==1]
+        # anchor_corner=anchor_corner[label_iou==1]
         if self.training:
             if self.cls_type == 'thinner':
                 cls_loss, reg_loss = self._loss(label_cls_next, label_reg, reg_weight, pred_cls, pred_reg, sum_weight)
             elif self.cls_type == 'thicker':
-                cls_loss, reg_loss = self._loss_thicker(label_cls_next, label_reg, reg_weight, pred_cls, pred_reg,anchor_corner,bboxes_next,
+                cls_loss, reg_loss = self._loss_thicker(label_cls_next, label_reg, reg_weight, pred_cls, pred_reg,
                                                         Giouloss=self.cfg.SIAMRPN.TRAIN.GIoU_LOSS)
             else:
                 raise ValueError('not implemented loss type')
@@ -120,6 +120,7 @@ class CascadedSiamRPNRes22(CRPN):
         for i in range(self.RPN):
             self.connect_model.append(DepthwiseRPN())
         self.anchors=None
+        self.Giouloss=False
     def forward(self,template, search, bboxes=None, label_cls=None, label_reg=None, reg_weight=None,
                 sum_weight=None):
         batch = template.shape[0]

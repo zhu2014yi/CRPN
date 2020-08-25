@@ -18,7 +18,7 @@ def parse_args():
     """
     parser = argparse.ArgumentParser(description='Train SiamRPN with onekey')
     # for train
-    parser.add_argument('--cfg', type=str, default='../experiments/train/SiamRPN.yaml', help='yaml configure file name')
+    parser.add_argument('--cfg', type=str, default='../experiments/train/CRPN.yaml', help='yaml configure file name')
 
     args = parser.parse_args()
 
@@ -52,19 +52,19 @@ def main():
     if testINFO['ISTRUE']:
         print('==> test phase')
         print('mpiexec -n {0} python ../siamese_tracking/test_epochs.py --arch {1} --start_epoch {2} --end_epoch {3} --gpu_nums={4} \
-                  --threads {0} --dataset {5} --anchor_nums {6} 2>&1 | tee logs/siamrpn_epoch_test.log'
+                  --threads {0} --dataset {5} --anchor_nums {6} --resume {7} 2>&1 | tee logs/siamrpn_epoch_test.log'
                   .format(testINFO['THREADS'], trainINFO['MODEL'], testINFO['START_EPOCH'], testINFO['END_EPOCH'],
-                          (len(info['GPUS']) + 1) // 2, testINFO['DATA'], len(trainINFO['ANCHORS_RATIOS']) * len(trainINFO['ANCHORS_SCALES'])))
+                          (len(info['GPUS']) + 1) // 2, testINFO['DATA'], len(trainINFO['ANCHORS_RATIOS']) * len(trainINFO['ANCHORS_SCALES']),info["CHECKPOINT_DIR"]))
 
         if not exists('logs'):
             os.makedirs('logs')
 
         os.system('mpiexec -n {0} python ../siamese_tracking/test_epochs.py --arch {1} --start_epoch {2} --end_epoch {3} --gpu_nums={4} \
-                  --threads {0} --dataset {5} --anchor_nums {6} 2>&1 | tee logs/siamrpn_epoch_test.log'
+                  --threads {0} --dataset {5} --anchor_nums {6} --resume {7} 2>&1 | tee logs/siamrpn_epoch_test.log'
                   .format(testINFO['THREADS'], trainINFO['MODEL'], testINFO['START_EPOCH'], testINFO['END_EPOCH'],
-                          (len(info['GPUS']) + 1) // 2, testINFO['DATA'], len(trainINFO['ANCHORS_RATIOS']) * len(trainINFO['ANCHORS_SCALES'])))
+                          (len(info['GPUS']) + 1) // 2, testINFO['DATA'], len(trainINFO['ANCHORS_RATIOS']) * len(trainINFO['ANCHORS_SCALES']),info["CHECKPOINT_DIR"]))
         if 'VOT' in testINFO['DATA']:
-            os.system('python ../lib/core/eval_vot.py {0} ./result 2>&1 | tee logs/siamrpn_eval_epochs.log'.format(testINFO['DATA']))
+            os.system('python eval.py')
         else:
             raise ValueError('not supported')
 
