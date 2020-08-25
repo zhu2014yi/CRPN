@@ -28,3 +28,5 @@ python eval.py
 2020/5/9. add the CRPN.yaml config file, you can use the CRPN without change the parameters in SiamRPN.yaml.
 
 2020/6/2. add the pysot toolkit to eval the tracker,usage: 1.cd siamese_tracking;2. python test_siamrpn_main.py.
+
+2020/8/25. change the onekey training way after training finish it will auto execute test from epoch 20-50 and execute eval
