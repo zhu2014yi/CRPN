@@ -5,7 +5,9 @@ Unofficial implementation of CRPN
 | :------ | :------: | 
 | SiamDW+depthwise  | 0.387 | 
 | C-RPN     | 0.395 | 
-[CRPN](https://pan.baidu.com/s/1L22M5bnROjmxWCsOICf4XA )提取码：vyel
+### weights file
+[CRPN](https://pan.baidu.com/s/1L22M5bnROjmxWCsOICf4XA )
+提取码：vyel
 ## Anaconda Environment
 Please follow the [SiamDW](https://github.com/researchmm/SiamDW)
 
