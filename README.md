@@ -34,3 +34,5 @@ python eval.py
 2020/8/25. change the onekey training way after training finish it will auto execute test from epoch 20-50 and execute eval
 
 2020/8/26. upload weights files
+## Acknowledge
+pysot and SiamDW
