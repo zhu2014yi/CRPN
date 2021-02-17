@@ -30,7 +30,6 @@ python eval.py
 4. pysot toolkit only support python>=3.7.
 5. The pretrain_otb.pth is the pretrained model for training the CRPN and test in OTB2015
 6. the original pretrain.model is used for training the CRPN and test in VOT2016
-7. 
 ## Update
 2020/5/9. add the CRPN.yaml config file, you can use the CRPN without change the parameters in SiamRPN.yaml.
 
@@ -39,6 +38,7 @@ python eval.py
 2020/8/25. change the onekey training way after training finish it will auto execute test from epoch 20-50 and execute eval
 
 2020/8/26. upload weights files
+
 2021/2/17. upload the complete code.
 ## Acknowledge
 pysot and SiamDW
