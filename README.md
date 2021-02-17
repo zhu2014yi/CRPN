@@ -30,6 +30,8 @@ python eval.py
 4. pysot toolkit only support python>=3.7.
 5. The pretrain_otb.pth is the pretrained model for training the CRPN and test in OTB2015
 6. the original pretrain.model is used for training the CRPN and test in VOT2016
+7. Tricks: use different seed to train the CRPN and test on the single dataset etc vot2016 to get the highest EAO and then start to tune on the vot2016 may get the better results. the same as OTB2015.
+8. The online results is get from the tune.py and different machine may get different results.
 ## Update
 2020/5/9. add the CRPN.yaml config file, you can use the CRPN without change the parameters in SiamRPN.yaml.
 
