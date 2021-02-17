@@ -31,7 +31,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description='PyTorch SiamRPN Tracking Test')
     parser.add_argument('--arch', dest='arch', default='CascadedSiamRPNRes22', help='backbone architecture')
     parser.add_argument('--resume', #default='/home/zhuyi/Code/SiamDW_RPN_cp_1/siamese_tracking/pretrain/checkpoint_e45.pth',
-                                 default='/ssd/zhuyi/Code/snapshot_orig/checkpoint_e3.pth',
+            default='/ssd/zhuyi/Code/snapshot_orig/checkpoint_e3.pth',
                                     type=str, help='pretrained model')
     parser.add_argument('--dataset', default='VOT2016', help='dataset test')
     parser.add_argument('--anchor_nums', default=5, type=int, help='anchor numbers')

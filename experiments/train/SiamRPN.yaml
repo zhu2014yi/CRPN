@@ -1,5 +1,5 @@
 SIAMRPN:
-  GPUS: '0,1'
+  GPUS: '0'
   PRINT_FREQ: 10
   WORKERS: 6
   OUTPUT_DIR: 'logs'   # log file
@@ -14,7 +14,7 @@ SIAMRPN:
     TEMPLATE_SIZE: 127
     SEARCH_SIZE: 255
     STRIDE: 8
-    BATCH: 32    #change
+    BATCH: 64    #change
     RESUME: ''
     PRETRAIN: 'pretrain.model'  #'checkpoint_e45.pth'
     LR_POLICY: 'log'
@@ -28,7 +28,7 @@ SIAMRPN:
     CLS_TYPE: 'thicker'  # thicker or thinner
     GIoU_LOSS: False
     #WHICH_USE: ['YTB', 'VID', 'COCO', 'DET']    # add any data you want eg: ['GOT10K', 'LASOT']
-    WHICH_USE: ['YTB', 'GOT10K', 'COCO', 'DET']
+    WHICH_USE: ['LASOT', 'GOT10K', 'COCO', 'DET']
 
     #WHICH_USE: ['GOT10K']
     ANCHORS_RATIOS: [0.33, 0.5, 1, 2, 3]
@@ -60,33 +60,33 @@ SIAMRPN:
     # add data path in WITCH_USE
     # you can ablate here to find witch data and ratio is better for your task
     VID:
-      PATH: '/ssd/vid/crop271'
-      ANNOTATION: '/ssd/vid/train.json'
+      PATH: '/ssd/VID/crop511'
+      ANNOTATION: '/ssd/VID/train.json'
       RANGE: 100
       USE: 200000
     YTB:
-      PATH: '/ssd/y2b/crop271'
-      ANNOTATION: '/ssd/y2b/train.json'
+      PATH: '/ssd/Y2B/crop511'
+      ANNOTATION: '/ssd/Y2B/train.json'
       RANGE: 3
       USE: 200000
     DET:
-      PATH: '/ssd/det/crop271'
-      ANNOTATION: '/ssd/det/train.json'
+      PATH: '/ssd/DET/crop511'
+      ANNOTATION: '/ssd/DET/train.json'
       RANGE: 100
       USE: 100000
     COCO:
-      PATH: "/ssd/coco/crop271"
-      ANNOTATION: "/ssd/coco/train2017.json"
+      PATH: "/ssd/COCO/crop511"
+      ANNOTATION: "/ssd/COCO/train2017.json"
       RANGE: 1
       USE: 100000
     GOT10K:
-      PATH: '/ssd/GOT-10K271/crop271'
-      ANNOTATION: '/ssd/GOT-10K271/train.json'
+      PATH: '/data/GOT-10K/crop511'
+      ANNOTATION: '/data/GOT-10K/train.json'
       RANGE: 100
       USE: 200000 #200000
     LASOT:
-      PATH: "/ssd/lasot/crop271"
-      ANNOTATION: "/ssd/lasot/train2017.json"
+      PATH: "/data/LaSOT511/crop511"
+      ANNOTATION: "/data/LaSOT511/train.json"
       RANGE: 100
       USE: 200000
 

@@ -30,9 +30,10 @@ from toolkit.utils.region import vot_overlap, vot_float2str
 
 """support VOT2016,2018,2019,OTB100"""
 parser = argparse.ArgumentParser(description='siamrpn tracking')
-parser.add_argument('--arch', dest='arch', default='CascadedSiamRPNRes22', help='backbone architecture')
+parser.add_argument('--arch', dest='arch', default='CascadedSiamRPNRes22', help='backbone architecture CascadedSiamRPNRes22 or SiamRPNRes22')
 parser.add_argument('--resume',
-                    default='/2TB/zhuyi/Code/CRPN/snapshot_orig/checkpoint_e32.pth',
+                    default='/2TB/zhuyi/Code/CRPN/snapshot_orig/checkpoint_e38.pth',
+                    #default="pretrain/checkpoint_e41.pth",
                     type=str,help='snapshot of models to eval')
 parser.add_argument('--dataset', type=str,default="VOT2016",
         help='datasets')
@@ -50,6 +51,7 @@ torch.set_num_threads(1)
 
 
 
+os.environ["CUDA_VISIBLE_DEVICES"]="1"
 def main():
     net = models.__dict__[args.arch](anchors_nums=args.anchor_nums, cls_type=args.cls_type)
     net = load_pretrain(net, args.resume)

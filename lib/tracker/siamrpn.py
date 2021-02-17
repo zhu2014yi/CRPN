@@ -11,8 +11,11 @@ import numpy as np
 from torch.autograd import Variable
 import torch.nn.functional as F
 from utils.utils import load_yaml, get_subwindow_tracking, python2round, generate_anchor
-
-
+from pysot.core.config import cfg
+from pysot.tracker.classifier.base_classifier import BaseClassifier
+from pysot.tracker.classifier.libs.plotting import show_tensor
+from PIL import Image
+from pysot.tracker.classifier.resnet import *
 class SiamRPN(object):
     """
     modified from VOT18 released model
@@ -20,18 +23,23 @@ class SiamRPN(object):
     def __init__(self, info):
         super(SiamRPN, self).__init__()
         self.info = info   # model and benchmark info
+        # if cfg.TRACK.USE_CLASSIFIER:
+        #     self.classifier = BaseClassifier(self.model)
+
         #self.info.cls_type='thinner'
     def init(self, im, target_pos, target_sz, model, hp=None):
+        self.frame_num = 1
+        self.temp_max = 0
+        self.lost_count = 0
         state = dict()
         state['im_h'] = im.shape[0]
         state['im_w'] = im.shape[1]
         p = RPNConfig()
-
         # single test
         if not hp and not self.info.epoch_test:
             prefix = [x for x in ['OTB', 'VOT'] if x in self.info.dataset]
-            cfg = load_yaml('../experiments/test/{0}/{1}.yaml'.format(prefix[0], self.info.arch))
-            cfg_benchmark = cfg[self.info.dataset]
+            cfg_ = load_yaml('../experiments/test/{0}/{1}.yaml'.format(prefix[0], self.info.arch))
+            cfg_benchmark = cfg_[self.info.dataset]
             p.update(cfg_benchmark)
             p.renew()
 
@@ -78,7 +86,26 @@ class SiamRPN(object):
             window = np.ones((p.score_size, p.score_size))
         window = np.expand_dims(window, axis=0)           # [1,17,17]
         window = np.repeat(window, p.anchor_num, axis=0)  # [5,17,17]
+        if cfg.TRACK.USE_CLASSIFIER:
+            # atom = ATOM().cuda().eval()
+            # checkpoint_dict = torch.load("/home/zhuyi/Code/CRPN_511/atom_pretrain.pth")
+            # atom.load_state_dict(checkpoint_dict["net"],strict=False)
 
+
+            self.classifier = BaseClassifier(net)
+            self.center_pos = np.array(target_pos)
+            self.size = np.array(target_sz)
+            bbox = [target_pos[0]-(target_sz[0]-1)/2,target_pos[1]-(target_sz[1]-1)/2,target_sz[0],target_sz[1]]
+            #bbox = [cx - (w - 1) / 2, cy - (h - 1) / 2, w, h]
+            if cfg.TRACK.TEMPLATE_UPDATE:
+                with torch.no_grad():
+                    net.template_short_term(self.z_crop)
+
+            s_xx = s_z * (cfg.TRACK.INSTANCE_SIZE * 2 / cfg.TRACK.EXEMPLAR_SIZE)
+            x_crop = get_subwindow_tracking(im, self.center_pos, cfg.TRACK.INSTANCE_SIZE * 2,
+                round(s_xx), avg_chans)
+            x_crop =x_crop.unsqueeze(0)
+            self.classifier.initialize(x_crop.type(torch.FloatTensor), bbox)
         state['p'] = p
         state['net'] = net
         state['avg_chans'] = avg_chans
@@ -152,7 +179,7 @@ class SiamRPN(object):
             anchor_next_all[:, 2] = anchor_next[:, 2] * torch.exp(pred_reg_next[:, 2])
             anchor_next_all[:, 3] = anchor_next[:, 3] * torch.exp(pred_reg_next[:, 3])
             return anchor_next_all
-        delta=torch.sum(delta,dim=0).div(2)
+        delta=torch.sum(delta,dim=0)
 
         pred_box = delta2boxes(anchors, delta)
         #pred_box = delta2boxes(anchors, delta[0])
@@ -227,6 +254,9 @@ class SiamRPN(object):
             anchor_next_all[:, 3] = anchor_next[:, 3] * torch.exp(pred_reg_next[:, 3])
             return anchor_next_all
 
+        def normalize(score):
+            score = (score - np.min(score)) / (np.max(score) - np.min(score))
+            return score
         pred_box = delta2boxes(anchors, delta[0])
         pred_box = delta2boxes(pred_box, delta[1])
 
@@ -256,8 +286,39 @@ class SiamRPN(object):
         penalty = np.exp(-(r_c * s_c - 1) * p.penalty_k)  # [5,17,17]
         # pscore = penalty * score  # [5, 17, 17]
         pscore = penalty * final_score  # [5, 17, 17]
-        # window float
         pscore = pscore.detach().cpu().numpy()
+
+        if cfg.TRACK.USE_CLASSIFIER:
+            #self.classifier.model.instance(x_crop)
+            flag, s = self.classifier.track()
+            if flag == 'not_found':
+                self.lost_count += 1
+            else:
+                self.lost_count = 0
+
+            confidence = Image.fromarray(s.detach().cpu().numpy())
+            confidence = np.array(confidence.resize((17, 17)))
+            pscore = pscore* (1 - cfg.TRACK.COEE_CLASS) + \
+                     normalize(confidence) * cfg.TRACK.COEE_CLASS
+            #pscore = pscore.flatten()
+
+            if cfg.TRACK.TEMPLATE_UPDATE:
+                score_st = self._convert_score(outputs['cls_st'])
+                pred_bbox_st = self._convert_bbox(outputs['loc_st'], self.anchors)
+                s_c_st = self.change(self.sz(pred_bbox_st[2, :], pred_bbox_st[3, :]) /
+                                (self.sz(self.size[0] * scale_z, self.size[1] * scale_z)))
+                r_c_st = self.change((self.size[0] / self.size[1]) /
+                                (pred_bbox_st[2, :] / pred_bbox_st[3, :]))
+                penalty_st = np.exp(-(r_c_st * s_c_st - 1) * cfg.TRACK.PENALTY_K)
+                pscore_st = penalty_st * score_st
+                pscore_st = pscore_st.reshape(5, -1) * (1 - cfg.TRACK.COEE_CLASS) + \
+                            normalize(confidence) * cfg.TRACK.COEE_CLASS
+                pscore_st = pscore_st.flatten(0)
+
+
+
+        # window float
+
         pscore = pscore * (1 - p.window_influence) + window * p.window_influence  # [5, 17, 17]
         a_max, r_max, c_max = np.unravel_index(pscore.argmax(), pscore.shape)
 
@@ -266,8 +327,14 @@ class SiamRPN(object):
         target_sz = target_sz / scale_z
         lr = penalty[a_max, r_max, c_max] * final_score[a_max, r_max, c_max] * p.lr  # lr for OTB
 
-        res_x = target[0] + target_pos[0]
-        res_y = target[1] + target_pos[1]
+        if cfg.TRACK.USE_CLASSIFIER and cfg.TRACK.SHORT_TERM_DRIFT and self.lost_count >= 8:
+            res_x, res_y = target[0] / 4 +target_pos[0], target[1] / 4 + target_pos[1]
+        else:
+            res_x = target[0] + target_pos[0]
+            res_y = target[1] + target_pos[1]
+
+        # res_x = target[0] + target_pos[0]
+        # res_y = target[1] + target_pos[1]
 
         res_w = target_sz[0] * (1 - lr) + target[2] * lr
         res_h = target_sz[1] * (1 - lr) + target[3] * lr
@@ -278,6 +345,8 @@ class SiamRPN(object):
         return target_pos, target_sz, final_score[a_max, r_max, c_max]
 
     def track(self, state, im):
+        self.frame_num += 1
+        self.curr_frame = im
         p = state['p']
         net = state['net']
         avg_chans = state['avg_chans']

@@ -1,13 +1,46 @@
+## cascadeSiamRPNRes22 stage12 mean
 TEST:
   VOT2015:
     penalty_k: 0.8950
     lr: 0.6540
     window_influence: 0.3700
   VOT2016:
-    penalty_k: 0.7110
-    lr: 0.7010
-    window_influence: 0.3550
+    penalty_k: 0.5076636874283544 #0.24977802881122224
+    lr: 0.6523644184913285 #0.38218867516144361
+    window_influence: 0.31965679914450196 #0.37081034879836688
   VOT2017:
     penalty_k: 0.038
     lr: 0.388
     window_influence: 0.347
+
+
+
+# CascadedSiamRPNRes22 stage2
+#TEST:
+#  VOT2015:
+#    penalty_k: 0.8950
+#    lr: 0.6540
+#    window_influence: 0.3700
+#  VOT2016:
+#    penalty_k: 0.3227729697033687
+#    lr: 0.3046826347424652
+#    window_influence: 0.3376552077671634
+#  VOT2017:
+#    penalty_k: 0.038
+#    lr: 0.388
+#    window_influence: 0.347
+
+# cascadeSiamRPNRes22 stage2 sample stragegy like CRPN(CVPR2019) ablition study
+#TEST:
+#  VOT2015:
+#    penalty_k: 0.8950
+#    lr: 0.6540
+#    window_influence: 0.3700
+#  VOT2016:
+#    penalty_k: 0.37559520706712796
+#    lr: 0.4907153677022896
+#    window_influence: 0.36879001106409465
+#  VOT2017:
+#    penalty_k: 0.038
+#    lr: 0.388
+#    window_influence: 0.347

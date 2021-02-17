@@ -1,0 +1,13 @@
+TEST:
+  OTB2013:
+    penalty_k: 0.2560
+    lr: 0.4390
+    window_influence: 0.0740
+  OTB2015:
+    penalty_k: 0.8410
+    lr: 0.7140
+    window_influence: 0.3900
+  OTB100:
+    penalty_k: 0.40578070657775367
+    lr: 0.18682960592978648
+    window_influence: 0.20089072022994695

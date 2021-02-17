@@ -1,0 +1,116 @@
+checkpoint_e32 window_influence: 0.58512276495528515, penalty_k: 0.49566878772903511, scale_lr: 0.49641951210965740, AUC: 0.619
+Trial 0 finished with value: 0.619185267656814 and parameters: {'window_influence': 0.5851227649552851, 'penalty_k': 0.4956687877290351, 'scale_lr': 0.4964195121096574, 'coee_class': 0.7258354448677298}. Best is trial 0 with value: 0.619185267656814.
+checkpoint_e32 window_influence: 0.42745468648932228, penalty_k: 0.51465017611145869, scale_lr: 0.76028603628791769, AUC: 0.646
+Trial 1 finished with value: 0.6464676033165536 and parameters: {'window_influence': 0.4274546864893223, 'penalty_k': 0.5146501761114587, 'scale_lr': 0.7602860362879177, 'coee_class': 0.6246466489066389}. Best is trial 1 with value: 0.6464676033165536.
+checkpoint_e32 window_influence: 0.37184457985356190, penalty_k: 0.38917697892204867, scale_lr: 0.24552338089255779, AUC: 0.628
+Trial 2 finished with value: 0.6283270964466539 and parameters: {'window_influence': 0.3718445798535619, 'penalty_k': 0.38917697892204867, 'scale_lr': 0.2455233808925578, 'coee_class': 0.9458501175121209}. Best is trial 1 with value: 0.6464676033165536.
+checkpoint_e32 window_influence: 0.15806438268732187, penalty_k: 0.53835530029928502, scale_lr: 0.13175937319878700, AUC: 0.611
+Trial 3 finished with value: 0.6108500252554164 and parameters: {'window_influence': 0.15806438268732187, 'penalty_k': 0.538355300299285, 'scale_lr': 0.131759373198787, 'coee_class': 0.8973980092064532}. Best is trial 1 with value: 0.6464676033165536.
+checkpoint_e32 window_influence: 0.32311853843046839, penalty_k: 0.54789330865461816, scale_lr: 0.10946984640132515, AUC: 0.636
+Trial 4 finished with value: 0.6355570523883244 and parameters: {'window_influence': 0.3231185384304684, 'penalty_k': 0.5478933086546182, 'scale_lr': 0.10946984640132515, 'coee_class': 0.8432937331202163}. Best is trial 1 with value: 0.6464676033165536.
+checkpoint_e32 window_influence: 0.42668396618715110, penalty_k: 0.45474196694557178, scale_lr: 0.18487648111140947, AUC: 0.628
+Trial 5 finished with value: 0.6275262286250125 and parameters: {'window_influence': 0.4266839661871511, 'penalty_k': 0.4547419669455718, 'scale_lr': 0.18487648111140947, 'coee_class': 0.8448440087861436}. Best is trial 1 with value: 0.6464676033165536.
+checkpoint_e32 window_influence: 0.34109546620570302, penalty_k: 0.30896803007373858, scale_lr: 0.36941581927397926, AUC: 0.663
+Trial 6 finished with value: 0.6626658438235804 and parameters: {'window_influence': 0.341095466205703, 'penalty_k': 0.3089680300737386, 'scale_lr': 0.36941581927397926, 'coee_class': 0.32265528901508544}. Best is trial 6 with value: 0.6626658438235804.
+checkpoint_e32 window_influence: 0.42800268074342718, penalty_k: 0.04156711520751413, scale_lr: 0.74969736557862177, AUC: 0.650
+Trial 7 finished with value: 0.6502499806593365 and parameters: {'window_influence': 0.4280026807434272, 'penalty_k': 0.041567115207514126, 'scale_lr': 0.7496973655786218, 'coee_class': 0.6554362621201552}. Best is trial 6 with value: 0.6626658438235804.
+checkpoint_e32 window_influence: 0.26173103817341026, penalty_k: 0.22122097509941083, scale_lr: 0.58926399100821769, AUC: 0.654
+Trial 8 finished with value: 0.6541113147709814 and parameters: {'window_influence': 0.26173103817341026, 'penalty_k': 0.22122097509941083, 'scale_lr': 0.5892639910082177, 'coee_class': 0.5245409129268845}. Best is trial 6 with value: 0.6626658438235804.
+checkpoint_e32 window_influence: 0.29795339586905056, penalty_k: 0.31625789058872500, scale_lr: 0.30534964763090822, AUC: 0.656
+Trial 9 finished with value: 0.6557343939495568 and parameters: {'window_influence': 0.29795339586905056, 'penalty_k': 0.316257890588725, 'scale_lr': 0.3053496476309082, 'coee_class': 0.43848288508685784}. Best is trial 6 with value: 0.6626658438235804.
+checkpoint_e32 window_influence: 0.62836127610762915, penalty_k: 0.15813065448736319, scale_lr: 0.38387230974088055, AUC: 0.612
+Trial 10 finished with value: 0.6118697822120416 and parameters: {'window_influence': 0.6283612761076292, 'penalty_k': 0.1581306544873632, 'scale_lr': 0.38387230974088055, 'coee_class': 0.15333274078683512}. Best is trial 6 with value: 0.6626658438235804.
+checkpoint_e32 window_influence: 0.18370618679214409, penalty_k: 0.31920303154545759, scale_lr: 0.34421066533573402, AUC: 0.652
+Trial 11 finished with value: 0.6518328239717119 and parameters: {'window_influence': 0.1837061867921441, 'penalty_k': 0.3192030315454576, 'scale_lr': 0.344210665335734, 'coee_class': 0.2781107100948439}. Best is trial 6 with value: 0.6626658438235804.
+checkpoint_e32 window_influence: 0.06489714114297190, penalty_k: 0.29101826204722858, scale_lr: 0.28715977576999346, AUC: 0.650
+Trial 12 finished with value: 0.6499907397712648 and parameters: {'window_influence': 0.0648971411429719, 'penalty_k': 0.2910182620472286, 'scale_lr': 0.28715977576999346, 'coee_class': 0.3406569233445478}. Best is trial 6 with value: 0.6626658438235804.
+checkpoint_e32 window_influence: 0.53990478077195225, penalty_k: 0.11730567565980801, scale_lr: 0.47516266497900772, AUC: 0.621
+Trial 13 finished with value: 0.6206503506447416 and parameters: {'window_influence': 0.5399047807719523, 'penalty_k': 0.11730567565980801, 'scale_lr': 0.4751626649790077, 'coee_class': 0.03518433197584314}. Best is trial 6 with value: 0.6626658438235804.
+checkpoint_e32 window_influence: 0.25825198832613738, penalty_k: 0.35773002452809849, scale_lr: 0.56805982810136535, AUC: 0.662
+Trial 14 finished with value: 0.6618503860961988 and parameters: {'window_influence': 0.2582519883261374, 'penalty_k': 0.3577300245280985, 'scale_lr': 0.5680598281013653, 'coee_class': 0.3810405987700437}. Best is trial 6 with value: 0.6626658438235804.
+checkpoint_e32 window_influence: 0.20803368004546241, penalty_k: 0.40300093827139494, scale_lr: 0.59783723527009303, AUC: 0.660
+Trial 15 finished with value: 0.6599978455142059 and parameters: {'window_influence': 0.2080336800454624, 'penalty_k': 0.40300093827139494, 'scale_lr': 0.597837235270093, 'coee_class': 0.23329140124063236}. Best is trial 6 with value: 0.6626658438235804.
+checkpoint_e32 window_influence: 0.06661793823227313, penalty_k: 0.23804898119747947, scale_lr: 0.63092423280678644, AUC: 0.647
+Trial 16 finished with value: 0.6472959447635318 and parameters: {'window_influence': 0.06661793823227313, 'penalty_k': 0.23804898119747947, 'scale_lr': 0.6309242328067864, 'coee_class': 0.40737766451968915}. Best is trial 6 with value: 0.6626658438235804.
+checkpoint_e32 window_influence: 0.12691706467522587, penalty_k: 0.38703307283518679, scale_lr: 0.41754852816070542, AUC: 0.641
+Trial 17 finished with value: 0.6405822984263074 and parameters: {'window_influence': 0.12691706467522587, 'penalty_k': 0.3870330728351868, 'scale_lr': 0.4175485281607054, 'coee_class': 0.08537098917752425}. Best is trial 6 with value: 0.6626658438235804.
+checkpoint_e32 window_influence: 0.24478917255423349, penalty_k: 0.59764225226530709, scale_lr: 0.52810751493586217, AUC: 0.664
+Trial 18 finished with value: 0.6635774489790384 and parameters: {'window_influence': 0.2447891725542335, 'penalty_k': 0.5976422522653071, 'scale_lr': 0.5281075149358622, 'coee_class': 0.5223451499000406}. Best is trial 18 with value: 0.6635774489790384.
+checkpoint_e32 window_influence: 0.50023768992398687, penalty_k: 0.59346773137466324, scale_lr: 0.49700004363449735, AUC: 0.646
+Trial 19 finished with value: 0.645771512292069 and parameters: {'window_influence': 0.5002376899239869, 'penalty_k': 0.5934677313746632, 'scale_lr': 0.49700004363449735, 'coee_class': 0.5206540738005184}. Best is trial 18 with value: 0.6635774489790384.
+checkpoint_e32 window_influence: 0.37224050551203564, penalty_k: 0.03776225092972080, scale_lr: 0.42413290106370449, AUC: 0.669
+Trial 20 finished with value: 0.668927182923134 and parameters: {'window_influence': 0.37224050551203564, 'penalty_k': 0.0377622509297208, 'scale_lr': 0.4241329010637045, 'coee_class': 0.224779019937227}. Best is trial 20 with value: 0.668927182923134.
+checkpoint_e32 window_influence: 0.36767546042594834, penalty_k: 0.01689706433454674, scale_lr: 0.42273709418965366, AUC: 0.660
+Trial 21 finished with value: 0.6602394922736634 and parameters: {'window_influence': 0.36767546042594834, 'penalty_k': 0.01689706433454674, 'scale_lr': 0.42273709418965366, 'coee_class': 0.2073434349707594}. Best is trial 20 with value: 0.668927182923134.
+checkpoint_e32 window_influence: 0.23810025298615178, penalty_k: 0.05758687006001296, scale_lr: 0.68998105054142755, AUC: 0.656
+Trial 22 finished with value: 0.6564417711854335 and parameters: {'window_influence': 0.23810025298615178, 'penalty_k': 0.05758687006001296, 'scale_lr': 0.6899810505414276, 'coee_class': 0.3087749732674263}. Best is trial 20 with value: 0.668927182923134.
+checkpoint_e32 window_influence: 0.32951215753576923, penalty_k: 0.59991823945141198, scale_lr: 0.52142915729693706, AUC: 0.660
+Trial 23 finished with value: 0.6602674224411536 and parameters: {'window_influence': 0.32951215753576923, 'penalty_k': 0.599918239451412, 'scale_lr': 0.5214291572969371, 'coee_class': 0.13403219282437986}. Best is trial 20 with value: 0.668927182923134.
+checkpoint_e32 window_influence: 0.48339492537304973, penalty_k: 0.11913752282468344, scale_lr: 0.36545929195418636, AUC: 0.653
+Trial 24 finished with value: 0.6529666695155352 and parameters: {'window_influence': 0.48339492537304973, 'penalty_k': 0.11913752282468344, 'scale_lr': 0.36545929195418636, 'coee_class': 0.4371458406710374}. Best is trial 20 with value: 0.668927182923134.
+checkpoint_e32 window_influence: 0.37885204913571113, penalty_k: 0.20770181652484854, scale_lr: 0.44321149216120020, AUC: 0.663
+Trial 25 finished with value: 0.6627263063927752 and parameters: {'window_influence': 0.37885204913571113, 'penalty_k': 0.20770181652484854, 'scale_lr': 0.4432114921612002, 'coee_class': 0.5807409622117823}. Best is trial 20 with value: 0.668927182923134.
+checkpoint_e32 window_influence: 0.38723659745856903, penalty_k: 0.17266342813261895, scale_lr: 0.55252919073593321, AUC: 0.657
+Trial 26 finished with value: 0.6571577190718156 and parameters: {'window_influence': 0.38723659745856903, 'penalty_k': 0.17266342813261895, 'scale_lr': 0.5525291907359332, 'coee_class': 0.638105018988232}. Best is trial 20 with value: 0.668927182923134.
+checkpoint_e32 window_influence: 0.28738912949561723, penalty_k: 0.08452488985044840, scale_lr: 0.44248578389234633, AUC: 0.669
+Trial 27 finished with value: 0.6691734709525418 and parameters: {'window_influence': 0.28738912949561723, 'penalty_k': 0.0845248898504484, 'scale_lr': 0.44248578389234633, 'coee_class': 0.5779655987495046}. Best is trial 27 with value: 0.6691734709525418.
+checkpoint_e32 window_influence: 0.29047329011707868, penalty_k: 0.00059304523646727, scale_lr: 0.67708206521303960, AUC: 0.648
+Trial 28 finished with value: 0.6478671115989877 and parameters: {'window_influence': 0.2904732901170787, 'penalty_k': 0.0005930452364672698, 'scale_lr': 0.6770820652130396, 'coee_class': 0.6946052331308007}. Best is trial 27 with value: 0.6691734709525418.
+checkpoint_e32 window_influence: 0.13708986793508132, penalty_k: 0.07556904318997586, scale_lr: 0.51632650957651771, AUC: 0.650
+Trial 29 finished with value: 0.6497229790393629 and parameters: {'window_influence': 0.13708986793508132, 'penalty_k': 0.07556904318997586, 'scale_lr': 0.5163265095765177, 'coee_class': 0.7674685545920673}. Best is trial 27 with value: 0.6691734709525418.
+checkpoint_e32 window_influence: 0.21325441948073881, penalty_k: 0.00428733637036530, scale_lr: 0.46648262529300938, AUC: 0.652
+Trial 30 finished with value: 0.6519143411125363 and parameters: {'window_influence': 0.2132544194807388, 'penalty_k': 0.004287336370365304, 'scale_lr': 0.4664826252930094, 'coee_class': 0.7466109018396612}. Best is trial 27 with value: 0.6691734709525418.
+checkpoint_e32 window_influence: 0.29348714401267051, penalty_k: 0.09745499656008147, scale_lr: 0.42656854299974506, AUC: 0.664
+Trial 31 finished with value: 0.6639443441306455 and parameters: {'window_influence': 0.2934871440126705, 'penalty_k': 0.09745499656008147, 'scale_lr': 0.42656854299974506, 'coee_class': 0.5471476637814878}. Best is trial 27 with value: 0.6691734709525418.
+checkpoint_e32 window_influence: 0.28335373702452238, penalty_k: 0.10101915897905850, scale_lr: 0.41733190399285963, AUC: 0.668
+Trial 32 finished with value: 0.6684482471754042 and parameters: {'window_influence': 0.2833537370245224, 'penalty_k': 0.1010191589790585, 'scale_lr': 0.41733190399285963, 'coee_class': 0.567996847528758}. Best is trial 27 with value: 0.6691734709525418.
+checkpoint_e32 window_influence: 0.29247746497926075, penalty_k: 0.10176863703624427, scale_lr: 0.31472510396502462, AUC: 0.665
+Trial 33 finished with value: 0.6651088411914554 and parameters: {'window_influence': 0.29247746497926075, 'penalty_k': 0.10176863703624427, 'scale_lr': 0.3147251039650246, 'coee_class': 0.5919604759126095}. Best is trial 27 with value: 0.6691734709525418.
+checkpoint_e32 window_influence: 0.41692139335568390, penalty_k: 0.14602146089459625, scale_lr: 0.25376540216249910, AUC: 0.641
+Trial 34 finished with value: 0.6406759852136258 and parameters: {'window_influence': 0.4169213933556839, 'penalty_k': 0.14602146089459625, 'scale_lr': 0.2537654021624991, 'coee_class': 0.6077150035307325}. Best is trial 27 with value: 0.6691734709525418.
+checkpoint_e32 window_influence: 0.30529649132972775, penalty_k: 0.04015661045834585, scale_lr: 0.32207201621133869, AUC: 0.669
+Trial 35 finished with value: 0.6686195153137854 and parameters: {'window_influence': 0.30529649132972775, 'penalty_k': 0.04015661045834585, 'scale_lr': 0.3220720162113387, 'coee_class': 0.4738729681281227}. Best is trial 27 with value: 0.6691734709525418.
+checkpoint_e32 window_influence: 0.32838963872053800, penalty_k: 0.03740085877640105, scale_lr: 0.20405297805359071, AUC: 0.668
+Trial 36 finished with value: 0.6675280538387024 and parameters: {'window_influence': 0.328389638720538, 'penalty_k': 0.03740085877640105, 'scale_lr': 0.2040529780535907, 'coee_class': 0.4780224475802418}. Best is trial 27 with value: 0.6691734709525418.
+checkpoint_e32 window_influence: 0.46345061650625174, penalty_k: 0.07216902047083472, scale_lr: 0.38524166424336231, AUC: 0.636
+Trial 37 finished with value: 0.6357890086548077 and parameters: {'window_influence': 0.46345061650625174, 'penalty_k': 0.07216902047083472, 'scale_lr': 0.3852416642433623, 'coee_class': 0.685175878571938}. Best is trial 27 with value: 0.6691734709525418.
+checkpoint_e32 window_influence: 0.40295031353015476, penalty_k: 0.18138898932885872, scale_lr: 0.25206012798712218, AUC: 0.643
+Trial 38 finished with value: 0.6430029508804107 and parameters: {'window_influence': 0.40295031353015476, 'penalty_k': 0.18138898932885872, 'scale_lr': 0.2520601279871222, 'coee_class': 0.799628566166891}. Best is trial 27 with value: 0.6691734709525418.
+checkpoint_e32 window_influence: 0.34573117414367038, penalty_k: 0.03610027093789420, scale_lr: 0.34768324014841023, AUC: 0.640
+Trial 39 finished with value: 0.6395246628644704 and parameters: {'window_influence': 0.3457311741436704, 'penalty_k': 0.0361002709378942, 'scale_lr': 0.34768324014841023, 'coee_class': 0.9480620301165026}. Best is trial 27 with value: 0.6691734709525418.
+checkpoint_e32 window_influence: 0.35650491378653143, penalty_k: 0.13447074462995479, scale_lr: 0.17900706111763903, AUC: 0.672
+Trial 40 finished with value: 0.6718063283528022 and parameters: {'window_influence': 0.35650491378653143, 'penalty_k': 0.13447074462995479, 'scale_lr': 0.17900706111763903, 'coee_class': 0.47364231254815237}. Best is trial 40 with value: 0.6718063283528022.
+checkpoint_e32 window_influence: 0.31253709368112337, penalty_k: 0.13828473269907934, scale_lr: 0.17264224537631589, AUC: 0.665
+Trial 41 finished with value: 0.6646839952139467 and parameters: {'window_influence': 0.31253709368112337, 'penalty_k': 0.13828473269907934, 'scale_lr': 0.1726422453763159, 'coee_class': 0.44605650607770736}. Best is trial 40 with value: 0.6718063283528022.
+checkpoint_e32 window_influence: 0.35997277828666729, penalty_k: 0.07874290474567994, scale_lr: 0.11912724243501355, AUC: 0.675
+Trial 42 finished with value: 0.6754498873209738 and parameters: {'window_influence': 0.3599727782866673, 'penalty_k': 0.07874290474567994, 'scale_lr': 0.11912724243501355, 'coee_class': 0.4854054228469076}. Best is trial 42 with value: 0.6754498873209738.
+checkpoint_e32 window_influence: 0.44765978457067074, penalty_k: 0.06262883034402122, scale_lr: 0.12131236151390770, AUC: 0.663
+Trial 43 finished with value: 0.6626466688867125 and parameters: {'window_influence': 0.44765978457067074, 'penalty_k': 0.06262883034402122, 'scale_lr': 0.1213123615139077, 'coee_class': 0.47747235369285057}. Best is trial 42 with value: 0.6754498873209738.
+checkpoint_e32 window_influence: 0.35079298751391014, penalty_k: 0.02129029010456242, scale_lr: 0.15316303548983018, AUC: 0.668
+Trial 44 finished with value: 0.6676457506478507 and parameters: {'window_influence': 0.35079298751391014, 'penalty_k': 0.02129029010456242, 'scale_lr': 0.15316303548983018, 'coee_class': 0.3755559268113928}. Best is trial 42 with value: 0.6754498873209738.
+checkpoint_e32 window_influence: 0.36774231160830800, penalty_k: 0.08473876256277589, scale_lr: 0.20901484256150676, AUC: 0.669
+Trial 45 finished with value: 0.6689827411505493 and parameters: {'window_influence': 0.367742311608308, 'penalty_k': 0.08473876256277589, 'scale_lr': 0.20901484256150676, 'coee_class': 0.48616017148168184}. Best is trial 42 with value: 0.6754498873209738.
+checkpoint_e32 window_influence: 0.36574044932297234, penalty_k: 0.24839670655595036, scale_lr: 0.21521739879254925, AUC: 0.665
+Trial 46 finished with value: 0.6651998687737902 and parameters: {'window_influence': 0.36574044932297234, 'penalty_k': 0.24839670655595036, 'scale_lr': 0.21521739879254925, 'coee_class': 0.25791236945066875}. Best is trial 42 with value: 0.6754498873209738.
+checkpoint_e32 window_influence: 0.43743110675857394, penalty_k: 0.19696956347684352, scale_lr: 0.11849172299710213, AUC: 0.663
+Trial 47 finished with value: 0.6628701822055002 and parameters: {'window_influence': 0.43743110675857394, 'penalty_k': 0.19696956347684352, 'scale_lr': 0.11849172299710213, 'coee_class': 0.35460801751137383}. Best is trial 42 with value: 0.6754498873209738.
+checkpoint_e32 window_influence: 0.40836606840976758, penalty_k: 0.13046513506612806, scale_lr: 0.10013844792379280, AUC: 0.658
+Trial 48 finished with value: 0.6579618325382953 and parameters: {'window_influence': 0.4083660684097676, 'penalty_k': 0.13046513506612806, 'scale_lr': 0.1001384479237928, 'coee_class': 0.6593630658754169}. Best is trial 42 with value: 0.6754498873209738.
+checkpoint_e32 window_influence: 0.53231543571002193, penalty_k: 0.08816287564608619, scale_lr: 0.16316744885237963, AUC: 0.641
+Trial 49 finished with value: 0.6408420567842404 and parameters: {'window_influence': 0.5323154357100219, 'penalty_k': 0.08816287564608619, 'scale_lr': 0.16316744885237963, 'coee_class': 0.012072727335671413}. Best is trial 42 with value: 0.6754498873209738.
+checkpoint_e32 window_influence: 0.39351289543221063, penalty_k: 0.16118189466873678, scale_lr: 0.27982821537358044, AUC: 0.655
+Trial 50 finished with value: 0.6554322089371788 and parameters: {'window_influence': 0.39351289543221063, 'penalty_k': 0.16118189466873678, 'scale_lr': 0.27982821537358044, 'coee_class': 0.4135968162834768}. Best is trial 42 with value: 0.6754498873209738.
+checkpoint_e32 window_influence: 0.31880803199662372, penalty_k: 0.04404292218919559, scale_lr: 0.20108495163723578, AUC: 0.683
+Trial 51 finished with value: 0.6827752333761105 and parameters: {'window_influence': 0.3188080319966237, 'penalty_k': 0.044042922189195595, 'scale_lr': 0.20108495163723578, 'coee_class': 0.4853938329404517}. Best is trial 51 with value: 0.6827752333761105.
+checkpoint_e32 window_influence: 0.35551919891195805, penalty_k: 0.05947561529952909, scale_lr: 0.19728137043934879, AUC: 0.663
+Trial 52 finished with value: 0.662532428165416 and parameters: {'window_influence': 0.35551919891195805, 'penalty_k': 0.05947561529952909, 'scale_lr': 0.1972813704393488, 'coee_class': 0.498693546534939}. Best is trial 51 with value: 0.6827752333761105.
+checkpoint_e32 window_influence: 0.32141130873535917, penalty_k: 0.00211308637437239, scale_lr: 0.14490661238361802, AUC: 0.656
+Trial 53 finished with value: 0.6561204969791619 and parameters: {'window_influence': 0.32141130873535917, 'penalty_k': 0.0021130863743723943, 'scale_lr': 0.14490661238361802, 'coee_class': 0.5551236606813372}. Best is trial 51 with value: 0.6827752333761105.
+checkpoint_e32 window_influence: 0.27073874749369692, penalty_k: 0.11723624370124187, scale_lr: 0.21148890816410457, AUC: 0.664
+Trial 54 finished with value: 0.6637250858881246 and parameters: {'window_influence': 0.2707387474936969, 'penalty_k': 0.11723624370124187, 'scale_lr': 0.21148890816410457, 'coee_class': 0.30345461643651017}. Best is trial 51 with value: 0.6827752333761105.
+checkpoint_e32 window_influence: 0.37662119513288644, penalty_k: 0.08086345200802646, scale_lr: 0.27966458792428350, AUC: 0.669
+Trial 55 finished with value: 0.6694639327097414 and parameters: {'window_influence': 0.37662119513288644, 'penalty_k': 0.08086345200802646, 'scale_lr': 0.2796645879242835, 'coee_class': 0.41255866901927024}. Best is trial 51 with value: 0.6827752333761105.
+checkpoint_e32 window_influence: 0.23571593508296301, penalty_k: 0.07892949281672600, scale_lr: 0.23211355326535074, AUC: 0.662
+Trial 56 finished with value: 0.662218005695004 and parameters: {'window_influence': 0.235715935082963, 'penalty_k': 0.078929492816726, 'scale_lr': 0.23211355326535074, 'coee_class': 0.39762491325464466}. Best is trial 51 with value: 0.6827752333761105.
+checkpoint_e32 window_influence: 0.34705876482498410, penalty_k: 0.10915514385825725, scale_lr: 0.28631049059880365, AUC: 0.662
+Trial 57 finished with value: 0.6615902453188011 and parameters: {'window_influence': 0.3470587648249841, 'penalty_k': 0.10915514385825725, 'scale_lr': 0.28631049059880365, 'coee_class': 0.43744320454978014}. Best is trial 51 with value: 0.6827752333761105.

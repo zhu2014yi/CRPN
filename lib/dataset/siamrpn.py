@@ -310,7 +310,7 @@ class SiamRPNDataset(Dataset):
                 count += 1
 
 
-    def _anchor_target(self, target, pos_keep=16, all_keep=64, thr_high=0.6, thr_low=0.3):
+    def _anchor_target(self, target, pos_keep=16, all_keep=64, thr_high=0.6, thr_low=0.3,neg=False):
         cls = np.zeros((self.anchor_nums, self.score_size, self.score_size), dtype=np.int64)
         cls[...] = -1  # -1 ignore 0 negative 1 positive
         delta = np.zeros((4, self.anchor_nums, self.score_size, self.score_size), dtype=np.float32)

@@ -36,10 +36,9 @@ def seed_torch(seed=0):
     torch.backends.cudnn.deterministic = True
 
 import random
-# seed=random.randint(1,10000)
-# with open ("/home/zhuyi/seed_search.txt","w") as f:
-seed=135
-#     f.write(str(seed))
+seed=random.randint(1,10000)
+with open ("/home/zhuyi/seed_search.txt","w") as f:
+    f.write(str(seed))
 print("seed:{}".format(seed))
 seed_torch(seed)
 

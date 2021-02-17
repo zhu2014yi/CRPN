@@ -85,6 +85,7 @@ config.SIAMRPN.DATASET.LASOT = edict()
 config.SIAMRPN.TRAIN = edict()
 config.SIAMRPN.TEST = edict()
 config.SIAMRPN.TUNE = edict()
+#config.SIAMRPN.TRACK = edict()
 
 # augmentation
 config.SIAMRPN.DATASET.NEG=0.2
@@ -162,7 +163,85 @@ config.SIAMRPN.TUNE.MODEL = config.SIAMRPN.TRAIN.MODEL
 config.SIAMRPN.TUNE.DATA = 'VOT2017'
 config.SIAMRPN.TUNE.METHOD = 'TPE' 
 
-
+# config.SIAMRPN.TRACK.USE_CLASSIFIER = False
+# config.SIAMRPN.TRACK.VISUALIZE_CLASS = False
+# config.SIAMRPN.TRACK.DEBUG_CLASS = False
+# config.SIAMRPN.TRACK.ANALYZE_CONVERGENCE = False
+# config.SIAMRPN.TRACK.SEED = 12345  # [0, 1, 12, 123, 1234, 12345, 123456]
+# config.SIAMRPN.TRACK.COEE_CLASS = 0.8
+#
+# # @network params
+# #(projection matrix)
+# config.SIAMRPN.TRACK.PROJECTION_REG = 1e-4
+# # first layer (compression)
+# config.SIAMRPN.TRACK.USE_PROJECTION_MATRIX = True
+# config.SIAMRPN.TRACK.UPDATE_PROJECTION_MATRIX = True
+# config.SIAMRPN.TRACK.COMPRESSED_DIM = 64
+# config.SIAMRPN.TRACK.PROJ_INIT_METHOD = 'randn'
+# config.SIAMRPN.TRACK.PROJECTION_ACTIVATION = 'none' # ('none', 'relu', 'elu' or 'mlu')
+# # second layer (attention)
+# config.SIAMRPN.TRACK.USE_ATTENTION_LAYER = False
+# config.SIAMRPN.TRACK.ATT_FC1_REG = 1e-4
+# config.SIAMRPN.TRACK.ATT_FC2_REG = 1e-4
+# config.SIAMRPN.TRACK.ATT_INIT_METHOD = 'randn'
+# config.SIAMRPN.TRACK.ATT_ACTIVATION = 'relu'
+# config.SIAMRPN.TRACK.SPATIAL_ATTENTION = 'none' # [''pool']
+# config.SIAMRPN.TRACK.CHANNEL_ATTENTION = False
+# # third layer (filter)
+# config.SIAMRPN.TRACK.FILTER_REG = 1e-1
+# config.SIAMRPN.TRACK.KERNEL_SIZE = (4,4)
+# config.SIAMRPN.TRACK.FILTER_INIT_METHOD = 'randn' # method for initializing the filter
+# config.SIAMRPN.TRACK.RESPONSE_ACTIVATION = ('mlu', 0.05)
+#
+# # @augmentation params
+# config.SIAMRPN.TRACK.USE_AUGMENTATION = True
+# config.SIAMRPN.TRACK.AUGMENTATION_SHIFT = False
+# config.SIAMRPN.TRACK.AUGMENTATION_SCALE = False
+# config.SIAMRPN.TRACK.AUGMENTATION_FLIPLR = True
+# config.SIAMRPN.TRACK.AUGMENTATION_ROTATE = [5, -5, 10, -10, 20, -20, 30, -30, 45, -45, -60, 60]
+# config.SIAMRPN.TRACK.AUGMENTATION_BLUR = [(2, 0.2), (0.2, 2), (3,1), (1, 3), (2, 2)]
+# config.SIAMRPN.TRACK.AUGMENTATION_RELATIVESHIFT = [(0.6, 0.6), (-0.6, 0.6), (0.6, -0.6), (-0.6,-0.6)]
+# config.SIAMRPN.TRACK.AUGMENTATION_DROUPOUT = (7, 0.2)
+# config.SIAMRPN.TRACK.AUGMENTATION_EXPANSION_FACTOR = 2
+# config.SIAMRPN.TRACK.RANDOM_SHIFT_FACTOR = 1/3
+#
+# # @optimization params
+# config.SIAMRPN.TRACK.CG_OPTIMIZER = True
+# config.SIAMRPN.TRACK.LEARNING_RATE = 0.01
+# config.SIAMRPN.TRACK.INIT_SAMPLES_MINIMUM_WEIGHT= 0.25
+# config.SIAMRPN.TRACK.SAMPLE_MEMORY_SIZE = 250
+# config.SIAMRPN.TRACK.OUTPUT_SIGMA_FACTOR = 0.25
+#
+# # GNCG - Gauss-Newton CG
+# config.SIAMRPN.TRACK.OPTIMIZER = 'GaussNewtonCG' # ['GaussNewtonCG', 'GradientDescentL2', 'NewtonCG', 'GradientDescent']
+# config.SIAMRPN.TRACK.INIT_CG_ITER = 60
+# config.SIAMRPN.TRACK.INIT_GN_ITER = 6
+# config.SIAMRPN.TRACK.TRAIN_SKIPPING = 10
+# config.SIAMRPN.TRACK.CG_ITER = 5
+# config.SIAMRPN.TRACK.POST_INIT_CG_ITER = 0
+# config.SIAMRPN.TRACK.FLETCHER_REEVES = False # Use the Fletcher-Reeves (true) or Polak-Ribiere (false) formula in the Conjugate Gradient
+# config.SIAMRPN.TRACK.STANDARD_ALPHA = True
+# config.SIAMRPN.TRACK.CG_FORGETTING_RATE = False
+#
+# # SGD - standard gradient descent
+# config.SIAMRPN.TRACK.OPTIMIZER_STEP_LENGTH = 10
+# config.SIAMRPN.TRACK.OPTIMIZER_MOMENTUM = 0.9
+#
+# # ADVANCED_LOCALIZATION - hard negative mining & absence assessment
+# config.SIAMRPN.TRACK.ADVANCED_LOCALIZATION = True
+# config.SIAMRPN.TRACK.TARGET_NOT_FOUND_THRESHOLD = 0.25
+# config.SIAMRPN.TRACK.TEMPLATE_UPDATE = False
+# config.SIAMRPN.TRACK.TARGET_UPDATE_THRESHOLD = 0.75
+# config.SIAMRPN.TRACK.TARGET_UPDATE_SKIPPING = 5
+# config.SIAMRPN.TRACK.TAU_REGRESSION = 0.6
+# config.SIAMRPN.TRACK.TAU_CLASSIFICATION = 0.5
+# config.SIAMRPN.TRACK.DISTRACTOR_THRESHOLD = 0.8
+# config.SIAMRPN.TRACK.HARD_NEGATIVE_THRESHOLD = 0.5
+# config.SIAMRPN.TRACK.TARGET_NEIGHBORHOOD_SCALE = 2.2
+# config.SIAMRPN.TRACK.DISPLACEMENT_SCALE = 0.8
+# config.SIAMRPN.TRACK.HARD_NEGATIVE_LEARNING_RATE = 0.02
+# config.SIAMRPN.TRACK.HARD_NEGATIVE_CG_ITER = 5
+# config.SIAMRPN.TRACK.SHORT_TERM_DRIFT = False
 
 def _update_dict(k, v, model_name):
     if k in ['TRAIN', 'TEST', 'TUNE']:

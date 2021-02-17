@@ -11,7 +11,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch.autograd import Variable
 from  loss import  *
-
+from pysot.core.config import cfg
 class CRPN(nn.Module):
     def __init__(self, anchors_nums=5, cls_type='thinner'):
         """
@@ -50,7 +50,31 @@ class CRPN(nn.Module):
             pred_cls, pred_reg = self.connect_model[i](z[i], x[i])
             pred_clses.append(pred_cls)
             pred_reges.append(pred_reg)
-        return pred_clses,pred_reges
+
+        # if not cfg.ADJUST.LAYER:
+        #     if cfg.ADJUST.FUSE == 'wavg':
+        #         cls_weight = self.rpn_head.cls_weight
+        #         self.cf = self.weighted_avg([cf for cf in xf], cls_weight)
+        #     elif cfg.ADJUST.FUSE == 'avg':
+        #         self.cf = self.avg([cf for cf in xf])
+        #     elif cfg.ADJUST.FUSE == 'con':
+        #         self.cf = torch.cat([cf for cf in xf], dim=1)
+        # else:
+        #     if isinstance(xf, list):
+        #         self.cf = xf[cfg.ADJUST.LAYER-1]
+        #     else:
+        #         self.cf = xf
+        self.cf= xf
+        if cfg.TRACK.TEMPLATE_UPDATE:
+            if cfg.RPN.RPN:
+                cls_st, loc_st = self.rpn_head(self.zf_st, xf)
+            else:
+                b, _, h, w = xf.size()
+                cls_st = F.conv2d(xf.view(1, -1, h, w), self.zf_st, groups=b).transpose(0,1)
+            return pred_clses,pred_reges, cls_st,loc_st
+
+        else:
+            return pred_clses,pred_reges
 
     # ------- For Training ---------
     def _weight_l1_loss(self, pred_reg, label_reg, weight):
@@ -135,5 +159,26 @@ class CRPN(nn.Module):
         return loss.sum().div(b)
 
 
+    def template_short_term(self, z_st):
+        zf_st ,_= self.feature_extractor(z_st)
 
+        self.zf_st = zf_st
 
+    def instance(self, x):
+        xf,_ = self.feature_extractor(x)
+
+        # if not cfg.ADJUST.LAYER:
+        #     if cfg.ADJUST.FUSE == 'wavg':
+        #         cls_weight = self.rpn_head.cls_weight
+        #         self.cf = self.weighted_avg([cf for cf in xf], cls_weight)
+        #     elif cfg.ADJUST.FUSE == 'avg':
+        #         self.cf = self.avg([cf for cf in xf])
+        #     elif cfg.ADJUST.FUSE == 'con':
+        #         self.cf = torch.cat([cf for cf in xf], dim=1)
+        # else:
+        #     if isinstance(xf, list):
+        #         self.cf = xf[cfg.ADJUST.LAYER-1]
+        #     else:
+        #         self.cf = xf
+
+        self.cf = xf
